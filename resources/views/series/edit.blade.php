@@ -68,10 +68,13 @@
             </div>
 
             <div class="mb-3">
-                <label for="rating" class="form-label">Rating (0-10) <span style="color: red;">*</span></label>
-                <input type="number" class="form-control @error('rating') is-invalid @enderror"
-                       id="rating" name="rating" value="{{ old('rating', $series->rating) }}" step="0.1" min="0" max="10" required>
-                @error('rating')
+                <label for="status" class="form-label">Status <span style="color: red;">*</span></label>
+                <select id="status" name="status" class="form-select @error('status') is-invalid @enderror" required>
+                    <option value="">Pilih status</option>
+                    <option value="Belum Ditonton" {{ old('status', $series->status) === 'Belum Ditonton' ? 'selected' : '' }}>Belum Ditonton</option>
+                    <option value="Sudah Ditonton" {{ old('status', $series->status) === 'Sudah Ditonton' ? 'selected' : '' }}>Sudah Ditonton</option>
+                </select>
+                @error('status')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>

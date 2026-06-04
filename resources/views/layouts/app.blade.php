@@ -6,31 +6,127 @@
     <title>@yield('title', 'Film Showlist')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; margin: 0; }
-        .navbar { background: white !important; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); border-radius: 0 0 10px 10px; }
-        .navbar-brand { color: #667eea !important; font-weight: bold; font-size: 1.5rem; }
-        .nav-link { color: #667eea !important; font-weight: 500; margin-right: 16px; }
-        .nav-link:hover { color: #764ba2 !important; }
-        .user-info { margin-left: auto; display: flex; align-items: center; gap: 15px; }
-        .username { color: #667eea; font-weight: bold; }
-        .btn-logout { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; color: white; font-weight: bold; padding: 8px 20px; }
-        .btn-logout:hover { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; transform: translateY(-2px); }
-        .container { max-width: 1100px; background: white; border-radius: 10px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); margin: 30px auto; }
-        .form-card { max-width: 700px; margin: 0 auto; }
-        .detail-card { max-width: 760px; margin: 0 auto; }
-        .btn-tambah { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; padding: 10px 25px; font-weight: bold; }
-        .btn-tambah:hover { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; transform: translateY(-2px); }
-        .btn-submit { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; padding: 12px 30px; font-weight: bold; margin-top: 20px; width: 100%; }
-        .btn-submit:hover { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; transform: translateY(-2px); }
-        .btn-kembali { background: #6c757d; border: none; padding: 12px 30px; font-weight: bold; margin-top: 10px; width: 100%; }
-        .btn-kembali:hover { background: #5a6268; color: white; }
-        .form-label { color: #333; font-weight: 600; margin-top: 15px; }
-        .form-control:focus { border-color: #667eea; box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25); }
-        .alert { margin-bottom: 20px; }
-        .detail-title { color: #1f2937; font-weight: 700; margin-bottom: 10px; }
-        .detail-text { color: #4b5563; margin-bottom: 20px; }
-        .table thead { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
-        .table tbody tr:hover { background-color: #f5f5f5; }
+        body {
+            background: radial-gradient(circle at top, #f8f2ff 0%, #efe1ff 35%, #e8eeff 100%);
+            min-height: 100vh;
+            margin: 0;
+            color: #3f2d6f;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 14px 34px rgba(109, 76, 255, 0.12);
+            border-radius: 0 0 18px 18px;
+            border-bottom: 1px solid rgba(136, 85, 255, 0.18);
+        }
+        .navbar-brand {
+            color: #6236d0 !important;
+            font-weight: bold;
+            font-size: 1.6rem;
+        }
+        .nav-link {
+            color: #7b5cf6 !important;
+            font-weight: 600;
+            margin-right: 16px;
+        }
+        .nav-link:hover {
+            color: #5325b8 !important;
+        }
+        .user-info {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .username {
+            color: #5f3dc4;
+            font-weight: 700;
+        }
+        .btn-logout {
+            background: linear-gradient(135deg, #c09bff 0%, #8d6bff 100%);
+            border: none;
+            color: white;
+            font-weight: 700;
+            padding: 10px 22px;
+            border-radius: 999px;
+        }
+        .btn-logout:hover {
+            background: linear-gradient(135deg, #8d6bff 0%, #b88cff 100%);
+            color: white;
+            transform: translateY(-1px);
+        }
+        .container {
+            max-width: 1100px;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 20px;
+            padding: 34px;
+            box-shadow: 0 20px 60px rgba(93, 49, 255, 0.13);
+            margin: 30px auto;
+            border: 1px solid rgba(156, 116, 255, 0.15);
+        }
+        .form-card,
+        .detail-card {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .btn-tambah,
+        .btn-submit {
+            background: linear-gradient(135deg, #c9a7ff 0%, #8a5eff 100%);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 700;
+            color: white;
+        }
+        .btn-tambah:hover,
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #8a5eff 0%, #d0b4ff 100%);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .btn-kembali {
+            background: #a29cff;
+            border: none;
+            padding: 12px 30px;
+            font-weight: bold;
+            margin-top: 10px;
+            width: 100%;
+            color: white;
+        }
+        .btn-kembali:hover {
+            background: #7d67f7;
+            color: white;
+        }
+        .form-label {
+            color: #3f2d6f;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+        .form-control {
+            border: 1px solid #d8d0ff;
+            box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+        }
+        .form-control:focus {
+            border-color: #9c7bff;
+            box-shadow: 0 0 0 0.2rem rgba(156, 116, 255, 0.18);
+        }
+        .alert {
+            margin-bottom: 20px;
+        }
+        .detail-title {
+            color: #2d1d5c;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .detail-text {
+            color: #52477d;
+            margin-bottom: 20px;
+        }
+        .table thead {
+            background: linear-gradient(135deg, #c9a7ff 0%, #8f63ff 100%);
+            color: white;
+        }
+        .table tbody tr:hover {
+            background-color: #f5f0ff;
+        }
     </style>
 </head>
 <body>

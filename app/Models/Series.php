@@ -11,7 +11,7 @@ class Series extends Model
     protected $fillable = [
         'judul',
         'jumlah_episode',
-        'rating',
+        'status',
         'user_id',
     ];
 

@@ -12,7 +12,7 @@ class Film extends Model
         'judul',
         'tahun_rilis',
         'durasi',
-        'rating',
+        'status',
         'user_id',
     ];
 

@@ -28,13 +28,13 @@ class SeriesController extends Controller
             'genre_ids' => 'required|array|min:1',
             'genre_ids.*' => 'exists:genres,id',
             'jumlah_episode' => 'required|integer|min:1',
-            'rating' => 'required|numeric|min:0|max:10',
+            'status' => 'required|in:Belum Ditonton,Sudah Ditonton',
         ]);
 
         $series = Auth::user()->series()->create([
             'judul' => $validated['judul'],
             'jumlah_episode' => $validated['jumlah_episode'],
-            'rating' => $validated['rating'],
+            'status' => $validated['status'],
         ]);
 
         $series->genres()->sync($validated['genre_ids']);
@@ -71,13 +71,13 @@ class SeriesController extends Controller
             'genre_ids' => 'required|array|min:1',
             'genre_ids.*' => 'exists:genres,id',
             'jumlah_episode' => 'required|integer|min:1',
-            'rating' => 'required|numeric|min:0|max:10',
+            'status' => 'required|in:Belum Ditonton,Sudah Ditonton',
         ]);
 
         $series->update([
             'judul' => $validated['judul'],
             'jumlah_episode' => $validated['jumlah_episode'],
-            'rating' => $validated['rating'],
+            'status' => $validated['status'],
         ]);
 
         $series->genres()->sync($validated['genre_ids']);

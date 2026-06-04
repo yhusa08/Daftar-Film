@@ -8,6 +8,22 @@
         <a href="{{ route('series.create') }}" class="btn btn-tambah btn-primary">+ Tambah Series Baru</a>
     </div>
 
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <input id="series-title-search" type="text" class="form-control" placeholder="Cari judul series...">
+        </div>
+        <div class="col-md-4">
+            <input id="series-genre-search" type="text" class="form-control" placeholder="Cari genre...">
+        </div>
+        <div class="col-md-4">
+            <select id="series-status-search" class="form-select">
+                <option value="">Semua status</option>
+                <option value="belum ditonton">Belum Ditonton</option>
+                <option value="sudah ditonton">Sudah Ditonton</option>
+            </select>
+        </div>
+    </div>
+
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Berhasil!</strong> {{ $message }}
@@ -28,7 +44,7 @@
                     <th width="25%">Judul</th>
                     <th width="20%">Genre</th>
                     <th width="15%">Episode</th>
-                    <th width="10%">Rating</th>
+                    <th width="10%">Status</th>
                     <th width="25%">Aksi</th>
                 </tr>
             </thead>
@@ -43,7 +59,7 @@
                             @endforeach
                         </td>
                         <td>{{ $item->jumlah_episode }} episode</td>
-                        <td>{{ $item->rating }}/10</td>
+                        <td>{{ $item->status }}</td>
                         <td>
                             <a href="{{ route('series.show', $item->id) }}" class="btn btn-info btn-sm">Lihat</a>
                             <a href="{{ route('series.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
@@ -59,3 +75,41 @@
         </table>
     @endif
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const titleSearch = document.getElementById('series-title-search');
+        const genreSearch = document.getElementById('series-genre-search');
+        const statusSearch = document.getElementById('series-status-search');
+        const rows = document.querySelectorAll('table tbody tr');
+
+        if (!titleSearch || !genreSearch || !statusSearch) {
+            return;
+        }
+
+        const filterRows = () => {
+            const titleQuery = titleSearch.value.trim().toLowerCase();
+            const genreQuery = genreSearch.value.trim().toLowerCase();
+            const statusQuery = statusSearch.value;
+
+            rows.forEach(row => {
+                const title = row.querySelector('td:nth-child(2)')?.textContent.toLowerCase() ?? '';
+                const genreBadges = Array.from(row.querySelectorAll('td:nth-child(3) .badge'));
+                const genre = genreBadges.map(badge => badge.textContent.toLowerCase()).join(' ');
+                const status = row.querySelector('td:nth-child(5)')?.textContent.toLowerCase() ?? '';
+
+                const titleMatch = title.includes(titleQuery);
+                const genreMatch = genre.includes(genreQuery);
+                const statusMatch = statusQuery === '' || status === statusQuery;
+
+                row.style.display = titleMatch && genreMatch && statusMatch ? '' : 'none';
+            });
+        };
+
+        titleSearch.addEventListener('input', filterRows);
+        genreSearch.addEventListener('input', filterRows);
+        statusSearch.addEventListener('change', filterRows);
+    });
+</script>
+@endpush

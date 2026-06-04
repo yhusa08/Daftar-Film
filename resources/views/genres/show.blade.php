@@ -21,7 +21,7 @@
                         <div style="padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 5px; background: #f9f9f9;">
                             <strong>{{ $film->judul }}</strong>
                             <div style="color: #666; font-size: 0.9rem; margin-top: 5px;">
-                                {{ $film->tahun_rilis }} | {{ $film->durasi }} menit | {{ $film->rating }}/10
+                                {{ $film->tahun_rilis }} | {{ $film->durasi }} menit | {{ $film->status }}
                             </div>
                         </div>
                     @endforeach
@@ -39,7 +39,7 @@
                         <div style="padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 5px; background: #f9f9f9;">
                             <strong>{{ $item->judul }}</strong>
                             <div style="color: #666; font-size: 0.9rem; margin-top: 5px;">
-                                {{ $item->jumlah_episode }} episode | {{ $item->rating }}/10
+                                {{ $item->jumlah_episode }} episode | {{ $item->status }}
                             </div>
                         </div>
                     @endforeach

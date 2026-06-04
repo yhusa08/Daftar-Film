@@ -18,8 +18,15 @@
             </div>
         @endif
 
-        <form action="{{ route('films.store') }}" method="POST">
-            @csrf
+        @if ($genres->isEmpty())
+            <div class="alert alert-warning">
+                Silakan tambahkan genre terlebih dahulu sebelum membuat film.
+                <a href="{{ route('genres.create') }}" class="alert-link">Tambah genre</a>.
+            </div>
+            <a href="{{ route('films.index') }}" class="btn btn-kembali btn-secondary">Kembali</a>
+        @else
+            <form action="{{ route('films.store') }}" method="POST">
+                @csrf
 
             <div class="mb-3">
                 <label for="judul" class="form-label">Judul Film <span style="color: red;">*</span></label>
@@ -75,11 +82,13 @@
             </div>
 
             <div class="mb-3">
-                <label for="rating" class="form-label">Rating (0-10) <span style="color: red;">*</span></label>
-                <input type="number" class="form-control @error('rating') is-invalid @enderror" 
-                       id="rating" name="rating" value="{{ old('rating') }}" 
-                       placeholder="Contoh: 8.5" step="0.1" min="0" max="10" required>
-                @error('rating')
+                <label for="status" class="form-label">Status <span style="color: red;">*</span></label>
+                <select id="status" name="status" class="form-select @error('status') is-invalid @enderror" required>
+                    <option value="">Pilih status</option>
+                    <option value="Belum Ditonton" {{ old('status') === 'Belum Ditonton' ? 'selected' : '' }}>Belum Ditonton</option>
+                    <option value="Sudah Ditonton" {{ old('status') === 'Sudah Ditonton' ? 'selected' : '' }}>Sudah Ditonton</option>
+                </select>
+                @error('status')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
@@ -87,5 +96,6 @@
             <button type="submit" class="btn btn-submit btn-primary">Simpan</button>
             <a href="{{ route('films.index') }}" class="btn btn-kembali btn-secondary">Kembali</a>
         </form>
+        @endif
     </div>
 @endsection

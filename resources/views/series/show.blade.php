@@ -26,8 +26,8 @@
         </div>
 
         <div>
-            <div class="detail-title">Rating</div>
-            <div class="detail-text">{{ $series->rating }}/10</div>
+            <div class="detail-title">Status</div>
+            <div class="detail-text">{{ $series->status }}</div>
         </div>
 
         <a href="{{ route('series.index') }}" class="btn btn-kembali btn-secondary">Kembali ke Daftar Series</a>

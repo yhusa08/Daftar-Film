@@ -18,18 +18,18 @@
         </div>
 
         <div style="display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #eee; font-size: 1.1rem;">
-            <div style="color: #667eea; font-weight: bold; width: 40%;">📅 Tahun Rilis</div>
-            <div style="color: #333; width: 60%; text-align: right;"><span style="color: #764ba2; font-weight: bold;">{{ $film->tahun_rilis }}</span></div>
+            <div style="color: #667eea; font-weight: bold; width: 40%;">Tahun Rilis</div>
+            <div style="color: #333; width: 60%; text-align: right;"><span>{{ $film->tahun_rilis }}</span></div>
         </div>
 
         <div style="display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #eee; font-size: 1.1rem;">
-            <div style="color: #667eea; font-weight: bold; width: 40%;">⏱️ Durasi</div>
-            <div style="color: #333; width: 60%; text-align: right;"><span style="color: #667eea; font-weight: bold;">{{ $film->durasi }} menit</span></div>
+            <div style="color: #667eea; font-weight: bold; width: 40%;">Durasi</div>
+            <div style="color: #333; width: 60%; text-align: right;"><span>{{ $film->durasi }} menit</span></div>
         </div>
 
         <div style="display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #eee; font-size: 1.1rem;">
-            <div style="color: #667eea; font-weight: bold; width: 40%;">⭐ Rating</div>
-            <div style="color: #333; width: 60%; text-align: right;"><span style="color: #ffc107; font-size: 1.3rem; font-weight: bold;">{{ $film->rating }}/10</span></div>
+            <div style="color: #667eea; font-weight: bold; width: 40%;">Status</div>
+            <div style="color: #333; width: 60%; text-align: right;"><span>{{ $film->status }}</span></div>
         </div>
 
         <div style="display: flex; justify-content: space-between; padding: 15px 0; border-bottom: none; font-size: 1.1rem;">

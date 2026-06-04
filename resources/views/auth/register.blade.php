@@ -7,78 +7,83 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: radial-gradient(circle at top, #f7ecff 0%, #eedbff 40%, #f4f2ff 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px;
+            padding: 24px;
+            color: #3d2c6e;
         }
         .register-container {
-            background: white;
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 24px;
+            padding: 44px;
+            box-shadow: 0 24px 55px rgba(102, 68, 255, 0.14);
             width: 100%;
-            max-width: 500px;
+            max-width: 520px;
+            border: 1px solid rgba(156, 105, 255, 0.16);
         }
         .register-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 36px;
         }
         .register-header h1 {
-            color: #667eea;
-            font-weight: bold;
-            font-size: 2.5rem;
+            color: #7c52ff;
+            font-weight: 900;
+            font-size: 2.8rem;
             margin: 0;
         }
         .register-header p {
-            color: #666;
+            color: #67558f;
             margin-top: 10px;
+            font-size: 1rem;
         }
         .form-label {
-            color: #333;
-            font-weight: 600;
-            margin-bottom: 8px;
+            color: #4b367f;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
         .form-control {
-            border: 2px solid #e0e0e0;
-            padding: 12px 15px;
-            border-radius: 5px;
+            border: 1px solid #dfd4ff;
+            padding: 14px 16px;
+            border-radius: 14px;
             font-size: 1rem;
             margin-bottom: 20px;
+            background: #faf7ff;
         }
         .form-control:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            border-color: #a78bff;
+            box-shadow: 0 0 0 0.2rem rgba(167, 139, 255, 0.2);
         }
         .btn-register {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4b2ff 0%, #8b5cf6 100%);
             border: none;
-            padding: 12px 30px;
-            font-weight: bold;
+            padding: 14px 30px;
+            font-weight: 700;
             font-size: 1rem;
-            border-radius: 5px;
+            border-radius: 14px;
             width: 100%;
             color: white;
             margin-top: 10px;
+            box-shadow: 0 16px 24px rgba(139, 92, 246, 0.18);
         }
         .btn-register:hover {
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            background: linear-gradient(135deg, #8b5cf6 0%, #caa4ff 100%);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-1px);
         }
         .login-link {
             text-align: center;
-            margin-top: 30px;
-            color: #666;
+            margin-top: 28px;
+            color: #6d5d95;
+            font-size: 0.95rem;
         }
         .login-link a {
-            color: #667eea;
+            color: #7c52ff;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
         }
         .login-link a:hover {
             text-decoration: underline;
@@ -86,20 +91,16 @@
         .alert {
             margin-bottom: 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 14px;
         }
         .error-message {
-            color: #dc3545;
-            font-size: 0.875rem;
+            color: #d6336c;
+            font-size: 0.9rem;
             margin-top: 5px;
         }
-        .icon-film {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
         .password-hint {
-            color: #999;
-            font-size: 0.875rem;
+            color: #7f73a2;
+            font-size: 0.9rem;
             margin-top: 5px;
         }
     </style>

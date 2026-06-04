@@ -38,14 +38,14 @@ class FilmController extends Controller
             'genre_ids.*' => 'exists:genres,id',
             'tahun_rilis' => 'required|integer|min:1900|max:' . date('Y'),
             'durasi' => 'required|integer|min:1',
-            'rating' => 'required|numeric|min:0|max:10',
+            'status' => 'required|in:Belum Ditonton,Sudah Ditonton',
         ]);
 
         $film = Auth::user()->films()->create([
             'judul' => $validated['judul'],
             'tahun_rilis' => $validated['tahun_rilis'],
             'durasi' => $validated['durasi'],
-            'rating' => $validated['rating'],
+            'status' => $validated['status'],
         ]);
 
         $film->genres()->sync($validated['genre_ids']);
@@ -85,14 +85,14 @@ class FilmController extends Controller
             'genre_ids.*' => 'exists:genres,id',
             'tahun_rilis' => 'required|integer|min:1900|max:' . date('Y'),
             'durasi' => 'required|integer|min:1',
-            'rating' => 'required|numeric|min:0|max:10',
+            'status' => 'required|in:Belum Ditonton,Sudah Ditonton',
         ]);
 
         $film->update([
             'judul' => $validated['judul'],
             'tahun_rilis' => $validated['tahun_rilis'],
             'durasi' => $validated['durasi'],
-            'rating' => $validated['rating'],
+            'status' => $validated['status'],
         ]);
 
         $film->genres()->sync($validated['genre_ids']);
